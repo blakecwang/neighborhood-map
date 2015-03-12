@@ -7,20 +7,13 @@
     <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <style type="text/css">
-      html, body, #map-canvas {
-        height: 100%;
-        margin: 0;
-        padding: 0;}
-    </style>
-
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWMekTXMrGU0DNq4CiFH5ZcFW8L_Wsm1A"></script>
 
     <script type="text/javascript">
       function initialize() {
         var mapOptions = {
           center: { lat: 32.759905, lng: -117.127455},
-          zoom: 8
+          zoom: 16
         };
         var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
       }
