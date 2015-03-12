@@ -17,12 +17,3 @@ body {
 #map-canvas {
 	height: 100%
 }
-
-
-/*
-html, body, #map-canvas {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-*/
