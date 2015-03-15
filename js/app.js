@@ -3,14 +3,16 @@
 */
 
 
-//----------- MODEL -----------//
-var model = function() {
-
-	var home = {
+var home = {
 		'name': 'Blake\'s House',
 		'lat': 32.759904, 
 		'lng': -117.127454
 	};
+
+//----------- MODEL -----------//
+var model = function() {
+
+	
 
 	var places = [
 		home,
