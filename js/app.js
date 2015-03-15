@@ -29,7 +29,8 @@ var model = function() {
 			'lat': 32.7486272, 
 			'lng': -117.1286325
 		},
-			'name': 'Rigobertos Taco Shop',
+		{
+			'name': 'Rigoberto\'s Taco Shop',
 			'lat': 32.7216101, 
 			'lng': -117.0858673
 		}
