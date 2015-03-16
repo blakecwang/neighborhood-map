@@ -11,7 +11,7 @@ var home = {
 
 
 var places = [
-	home,
+	// home,
 	{
 		'name': 'Coin-Op Game Room',
 		'lat': 32.7490327, 
