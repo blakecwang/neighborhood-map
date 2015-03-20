@@ -36,7 +36,7 @@ var places = [
 
 
 function init() {
-
+	console.log(places[1].name + ' ' + places[2].lat + ' ' + places[3].lng);
 	// init map
 	var map = new google.maps.Map( document.getElementById( 'map-canvas' ),
 		{
