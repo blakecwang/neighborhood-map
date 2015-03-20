@@ -36,7 +36,7 @@ var places = [
 
 
 function init() {
-	console.log(places[1].name + ' ' + places[2].lat + ' ' + places[3].lng);
+
 	// init map
 	var map = new google.maps.Map( document.getElementById( 'map-canvas' ),
 		{
@@ -45,26 +45,27 @@ function init() {
 		}
 	);
 
-	var latLng = new google.maps.LatLng( places[2].lat, places[2].lng );
-	var marker = new google.maps.Marker(
-		{
-			position: latLng,
-			map: map,
-			title: places[2].name
-		}
-	);
+	// var latLng = new google.maps.LatLng( places[2].lat, places[2].lng );
+	// var marker = new google.maps.Marker(
+	// 	{
+	// 		position: latLng,
+	// 		map: map,
+	// 		title: places[2].name
+	// 	}
+	// );
 
-	// init markers
-	// for ( var i = 0; i < home.length; i++) {
-	// 	var latLng = new google.maps.LatLng( places[i].lat, places[i].lng );
-	// 	var marker = new google.maps.Marker(
-	// 		{
-	// 			position: latLng,
-	// 			map: map,
-	// 			title: places[i].name
-	// 		}
-	// 	);
-	// }
+	//init markers
+	var markers = [];
+	for ( var i = 0; i < home.length; i++) {
+		var latLng = new google.maps.LatLng( places[i].lat, places[i].lng );
+		markers.push(new google.maps.Marker(
+			{
+				position: latLng,
+				map: map,
+				title: places[i].name
+			}
+		))
+	}
 }
 google.maps.event.addDomListener(window, 'load', init);
 
