@@ -3,7 +3,7 @@
 x Review our course JavaScript Design Patterns.
 x Download the Knockout framework.
 x Write code required to add a full-screen map to your page using the Google Maps API.
-- Write code required to add map markers identifying a number of locations your are interested in within this neighborhood.
+x Write code required to add map markers identifying a number of locations your are interested in within this neighborhood.
 - Implement the search bar functionality to search and filter your map markers. There should be a filtering function on markers that already show up. Simply providing a search function through a third-party API is not enough.
 - Implement a list view of the identified locations.
 - Add additional functionality using third-party APIs when a map marker, search result, or list view entry is clicked (ex. Yelp reviews, Wikipedia, StreetView/Flickr images, etc). If you need a refresher on making AJAX requests to third-party servers, check out our Intro to AJAX course.
@@ -18,7 +18,7 @@ x Write code required to add a full-screen map to your page using the Google Map
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>Neighborhood Map</title>
-<!--     <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 
     
@@ -26,13 +26,32 @@ x Write code required to add a full-screen map to your page using the Google Map
 <body>
 
     <div class="container">
-        <div class="row">
+        <div class="row" id="header">
             <h1>Blake's Neighborhood Map</h1>
         </div>
-        <div class="row">
+        <div class="row" id="main">
+            <div class="col-md-3">
+                <div class="row">
+                 <!--    <form> -->
+                        <input type="text" value="Type your search here.">
+                        <button type="button">Search</button>
+                 <!--    </form> -->
+
+                </div>
+                <div class="row">
+                    <h2>Search results go here.</h2>
+                </div>
+            </div>    
+            <div class="col-md-9">
+                <h2>map should be here</h2>
+            </div>
         </div>
     </div>
-    <div id="map-canvas"></div>
+    
+ <!--    <div id="map-canvas"></div> -->
+
+
+    
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWMekTXMrGU0DNq4CiFH5ZcFW8L_Wsm1A"></script>
     <script src="js/libs/jquery.min.js"></script>

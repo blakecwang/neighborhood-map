@@ -55,7 +55,7 @@ function init() {
 	var map = new google.maps.Map( document.getElementById( 'map-canvas' ),
 		{
 			center: { lat: latCenter, lng: lngCenter },
-		 	zoom: 12
+		 	zoom: 13
 		}
 	);
 
@@ -76,5 +76,5 @@ function init() {
 		
 	}
 }
-google.maps.event.addDomListener(window, 'load', init);
+//google.maps.event.addDomListener(window, 'load', init);
 
