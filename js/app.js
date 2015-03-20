@@ -49,6 +49,7 @@ function init() {
 	//init markers
 	var markers = [];
 	for ( var i = 0; i < places.length; i++ ) {
+
 		var latLng = new google.maps.LatLng( places[i].lat, places[i].lng );
 		markers.push( new google.maps.Marker(
 			{
@@ -57,7 +58,8 @@ function init() {
 				title: places[i].name
 			}
 		));
-		console.log( place[i].name + ' was added.' );
+		console.log( places[i].name + ' was added.' );
+		
 	}
 }
 google.maps.event.addDomListener(window, 'load', init);
