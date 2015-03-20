@@ -45,17 +45,26 @@ function init() {
 		}
 	);
 
+	var latLng = new google.maps.LatLng( places[0].lat, places[0].lng );
+	var marker = new google.maps.Marker(
+		{
+			position: latLng,
+			map: map,
+			title: places[0].name
+		}
+	);
+
 	// init markers
-	for ( var i = 0; i < home.length; i++) {
-		var latLng = new google.maps.LatLng( places[i].lat, places[i].lng );
-		var marker = new google.maps.Marker(
-			{
-				position: latLng,
-				map: map,
-				title: places[i].name
-			}
-		);
-	}
+	// for ( var i = 0; i < home.length; i++) {
+	// 	var latLng = new google.maps.LatLng( places[i].lat, places[i].lng );
+	// 	var marker = new google.maps.Marker(
+	// 		{
+	// 			position: latLng,
+	// 			map: map,
+	// 			title: places[i].name
+	// 		}
+	// 	);
+	// }
 }
 google.maps.event.addDomListener(window, 'load', init);
 
