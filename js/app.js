@@ -56,9 +56,9 @@ function init() {
 
 	//init markers
 	var markers = [];
-	for ( var i = 0; i < home.length; i++) {
+	for ( var i = 0; i < places.length; i++ ) {
 		var latLng = new google.maps.LatLng( places[i].lat, places[i].lng );
-		markers.push(new google.maps.Marker(
+		markers.push( new google.maps.Marker(
 			{
 				position: latLng,
 				map: map,
