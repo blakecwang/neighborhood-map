@@ -40,17 +40,17 @@ function init() {
 	// init map
 	var map = new google.maps.Map( document.getElementById( 'map-canvas' ),
 		{
-			center: { lat: home.lat, lng: home.lng },
+			center: { lat: places[2].lat, lng: places[2].lng },
 		 	zoom: 16
 		}
 	);
 
-	var latLng = new google.maps.LatLng( home.lat, home.lng );
+	var latLng = new google.maps.LatLng( places[2].lat, places[2].lng );
 	var marker = new google.maps.Marker(
 		{
 			position: latLng,
 			map: map,
-			title: home.name
+			title: places[2].name
 		}
 	);
 
