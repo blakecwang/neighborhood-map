@@ -11,7 +11,7 @@ var home = {
 
 
 var places = [
-	// home,
+	home,
 	{
 		'name': 'Coin-Op Game Room',
 		'lat': 32.7490327, 
@@ -40,19 +40,11 @@ function init() {
 	// init map
 	var map = new google.maps.Map( document.getElementById( 'map-canvas' ),
 		{
-			center: { lat: places[2].lat, lng: places[2].lng },
+			center: { lat: home.lat, lng: home.lng },
 		 	zoom: 16
 		}
 	);
 
-	// var latLng = new google.maps.LatLng( places[2].lat, places[2].lng );
-	// var marker = new google.maps.Marker(
-	// 	{
-	// 		position: latLng,
-	// 		map: map,
-	// 		title: places[2].name
-	// 	}
-	// );
 
 	//init markers
 	var markers = [];
@@ -64,7 +56,8 @@ function init() {
 				map: map,
 				title: places[i].name
 			}
-		))
+		));
+		console.log( place[i].name + ' was added.' );
 	}
 }
 google.maps.event.addDomListener(window, 'load', init);
