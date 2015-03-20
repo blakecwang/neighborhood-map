@@ -45,12 +45,12 @@ function init() {
 		}
 	);
 
-	var latLng = new google.maps.LatLng( places[0].lat, places[0].lng );
+	var latLng = new google.maps.LatLng( home.lat, home.lng );
 	var marker = new google.maps.Marker(
 		{
 			position: latLng,
 			map: map,
-			title: places[0].name
+			title: home.name
 		}
 	);
 
