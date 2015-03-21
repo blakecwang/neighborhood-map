@@ -15,8 +15,14 @@ body {
 }
 
 #map-canvas {
-	height: 100%;
-	width: 60%;
+	/*width: 33.3333%;*/
+    /*height: 100%;*/
+    position: absolute;
+    left: 50px;
+    right: 160px;
+    top: 80px;
+    bottom: 16px;
+    /*overflow: hidden;*/
 }
 
 .column {
