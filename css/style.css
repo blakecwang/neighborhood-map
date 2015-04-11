@@ -1,24 +1,56 @@
 
 * {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
 }
 
 
 #header {
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 960px;
     height: 60px;
     background-color: green;
+    text-align: center;
+}
+
+#header-text {
+    color: white;
+    line-height: 60px;
+    vertical-align: middle;
 }
 
 #map-canvas {
     position: absolute;
-    left: 300px;
-    top: 100px;
-    width: 660px;
-    height: 660px;
+    left: 315px;
+    top: 75px;
+    width: 641px;
+    height: 643px;
+    border: 2px solid green;
 }
 
-#header-text {
-	color: white;
+#search-column {
+    position: absolute;
+    left: 0px;
+    top: 75px;
+    width: 298px;
+    height: 645px;
+    border-right: 2px solid green;
+    border-bottom: 2px solid green;
+}
+
+#search-header {
+    background-color: green;
+    height: 40px;
+    text-align: center;
+}
+
+#search-header-text {
+    color: white;
+    line-height: 40px;
+    vertical-align: middle;
 }
 
