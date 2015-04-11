@@ -54,3 +54,23 @@
     vertical-align: middle;
 }
 
+#search-body {
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    top: 48px;
+    bottom: 8px;
+    border: 1px solid red;
+}
+
+#search-field {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+}
+
+#search-button {
+    position: absolute;
+    width: 60px;
+    right: 0px;
+}
