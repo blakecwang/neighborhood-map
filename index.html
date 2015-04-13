@@ -14,14 +14,9 @@ x Write code required to add map markers identifying a number of locations your 
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-<!--     <meta name="viewport" content="width=device-width"> -->
     <title>Neighborhood Map</title>
-<!--     <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="css/style.css">
-
-    
 </head>
 <body>
 
@@ -37,19 +32,12 @@ x Write code required to add map markers identifying a number of locations your 
         </div>
         <div id="search-body">
             <form id="search-form">
-
                 <input id="search-field" type="text" name="Search" value="Type keywords here">
                 <button id="search-button">Search</button>
-                
             </form>
-
-            
+            <p data-bind="text: formattedList"></p>
         </div>
-        
     </div>
-
-
-    
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWMekTXMrGU0DNq4CiFH5ZcFW8L_Wsm1A"></script>
     <script src="js/libs/jquery.min.js"></script>
