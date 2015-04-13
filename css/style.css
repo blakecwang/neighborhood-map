@@ -60,13 +60,13 @@
     right: 8px;
     top: 48px;
     bottom: 8px;
-    border: 1px solid red;
+/*    border: 1px solid red;*/
 }
 
 #search-field {
     position: absolute;
     left: 0px;
-    right: 0px;
+    width: 214px;
 }
 
 #search-button {

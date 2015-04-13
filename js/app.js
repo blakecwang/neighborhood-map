@@ -2,6 +2,7 @@
 	API key: AIzaSyBWMekTXMrGU0DNq4CiFH5ZcFW8L_Wsm1A
 */
 
+//--------------------MODEL--------------------//
 
 var home = {
 	'name': 'Blake\'s House',
@@ -60,7 +61,7 @@ function init() {
 	);
 
 
-	//init markers
+	// init markers
 	var markers = [];
 	for ( var i = 0; i < places.length; i++ ) {
 
