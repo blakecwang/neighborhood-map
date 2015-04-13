@@ -7,33 +7,46 @@
 var home = {
 	'name': 'Blake\'s House',
 	'lat': 32.759904, 
-	'lng': -117.127454
+	'lng': -117.127454,
+	'keywords': 'home, casa'
 };
 
-var places = [
+var pois = [
 	home,
 	{
 		'name': 'Coin-Op Game Room',
 		'lat': 32.7490327, 
-		'lng': -117.1303769
+		'lng': -117.1303769,
+		'keywords': 'bar, video'
 	},
 	{
 		'name': 'Soda Bar',
 		'lat': 32.7398671,
-		'lng': -117.1205925
+		'lng': -117.1205925,
+		'keywords': 'bar, music'
 	},
 	{
 		'name': 'Seven Grand',
 		'lat': 32.7486272, 
-		'lng': -117.1286325
+		'lng': -117.1286325,
+		'keywords': 'bar, whiskey'
 	},
 	{
 		'name': 'Rigoberto\'s Taco Shop',
 		'lat': 32.7216101, 
-		'lng': -117.0858673
+		'lng': -117.0858673,
+		'keywords': 'food, mexican'
 	}
 ];
 
+var poi = function(data) {
+
+	this.name = ko.observable(data.name);
+	this.lat = ko.observable(data.lat);
+	this.lng = ko.observable(data.lng);
+	this.keywords = ko.observable(data.keywords);
+
+};
 
 
 
@@ -42,24 +55,20 @@ var places = [
 
 function AppViewModel() {
 
-	this.formattedList = '';
-	for ( var i = 0; i < places.length; i++ ) {
-		this.formattedList += places[i].name + ' ';
-	}
+	this.placesList = ko.observableArray(places);
 
-
-	// function init() {
+	// function initMap(data) {
 
 	// 	// find center
-	// 	var latMin = places[0].lat;
-	// 	var latMax = places[0].lat;
-	// 	var lngMin = places[0].lng;
-	// 	var lngMax = places[0].lng;
-	// 	for ( var i = 0; i < places.length; i++ ) {
-	// 		if (places[i].lat < latMin) {latMin = places[i].lat;}
-	// 		if (places[i].lat > latMax) {latMax = places[i].lat;}
-	// 		if (places[i].lng < lngMin) {lngMin = places[i].lng;}
-	// 		if (places[i].lng > lngMax) {lngMax = places[i].lng;}
+	// 	var latMin = data[0].lat;
+	// 	var latMax = data[0].lat;
+	// 	var lngMin = data[0].lng;
+	// 	var lngMax = data[0].lng;
+	// 	for ( var i = 0; i < data.length; i++ ) {
+	// 		if (data[i].lat < latMin) {latMin = data[i].lat;}
+	// 		if (data[i].lat > latMax) {latMax = data[i].lat;}
+	// 		if (data[i].lng < lngMin) {lngMin = data[i].lng;}
+	// 		if (data[i].lng > lngMax) {lngMax = data[i].lng;}
 	// 	}
 	// 	var latCenter = (latMin + latMax) / 2;
 	// 	var lngCenter = (lngMin + lngMax) / 2;
@@ -74,19 +83,20 @@ function AppViewModel() {
 
 	// 	// init markers
 	// 	var markers = [];
-	// 	for ( var i = 0; i < places.length; i++ ) {
+	// 	for ( var i = 0; i < data.length; i++ ) {
 
-	// 		var latLng = new google.maps.LatLng( places[i].lat, places[i].lng );
+	// 		var latLng = new google.maps.LatLng( data[i].lat, data[i].lng );
 	// 		markers.push( new google.maps.Marker(
 	// 			{
 	// 				position: latLng,
 	// 				map: map,
-	// 				title: places[i].name
+	// 				title: data[i].name
 	// 			}
 	// 		));			
 	// 	}
-	// 	google.maps.event.addDomListener(window, 'load', init);
+	// 	google.maps.event.addDomListener(window, 'load', initMap);
 	// }
+	// initMap(this.placesList);
 }
 
 ko.applyBindings(new AppViewModel());
