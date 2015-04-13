@@ -55,7 +55,16 @@ var poi = function(data) {
 
 function AppViewModel() {
 
-	this.placesList = ko.observableArray(places);
+	var self = this;
+
+	this.poiList = ko.observableArray([]);
+	for (var i = 0; i < pois.length; i++) {
+		self.poiList.push( pois[i] );
+	}
+
+
+
+
 
 	// function initMap(data) {
 

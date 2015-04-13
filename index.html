@@ -34,8 +34,12 @@ x Write code required to add map markers identifying a number of locations your 
             <form id="search-form">
                 <input id="search-field" type="text" name="Search" value="Type keywords here">
                 <button id="search-button">Search</button>
+                <br><br>
             </form>
-            <p data-bind="text: formattedList"></p>
+            <ul id="search-results" data-bind="foreach: poiList">
+                <li data-bind="text: name"></li>
+                <br>
+            </ul>
         </div>
     </div>
 
