@@ -41,19 +41,16 @@ var pois = [
 
 
 
-function initMap(data) {
-
 	// find center
-	console.log(data[0].name);
-	var latMin = data[0].lat;
-	var latMax = data[0].lat;
-	var lngMin = data[0].lng;
-	var lngMax = data[0].lng;
-	for ( var i = 0; i < data.length; i++ ) {
-		if (data[i].lat < latMin) {latMin = data[i].lat;}
-		if (data[i].lat > latMax) {latMax = data[i].lat;}
-		if (data[i].lng < lngMin) {lngMin = data[i].lng;}
-		if (data[i].lng > lngMax) {lngMax = data[i].lng;}
+	var latMin = pois[0].lat;
+	var latMax = pois[0].lat;
+	var lngMin = pois[0].lng;
+	var lngMax = pois[0].lng;
+	for ( var i = 0; i < pois.length; i++ ) {
+		if (pois[i].lat < latMin) {latMin = pois[i].lat;}
+		if (pois[i].lat > latMax) {latMax = pois[i].lat;}
+		if (pois[i].lng < lngMin) {lngMin = pois[i].lng;}
+		if (pois[i].lng > lngMax) {lngMax = pois[i].lng;}
 	}
 	var latCenter = (latMin + latMax) / 2;
 	var lngCenter = (lngMin + lngMax) / 2;
@@ -65,25 +62,26 @@ function initMap(data) {
 		 	zoom: 13
 		}
 	);
-}
-initMap(pois);
 
-function initMarkers(data) {
-	var markers = [];
-	for ( var i = 0; i < data.length; i++ ) {
 
-		var latLng = new google.maps.LatLng( data[i].lat, data[i].lng );
-		markers.push( new google.maps.Marker(
-			{
-				position: latLng,
-				map: map,
-				title: data[i].name
-			}
-		));			
-	}
-	google.maps.event.addDomListener(window, 'load', initMap);
-}
-initMarkers(home);
+
+// function initMarkers(data) {
+// 	var markers = [];
+// 	for ( var i = 0; i < data.length; i++ ) {
+
+// 		var latLng = new google.maps.LatLng( data[i].lat, data[i].lng );
+// 		markers.push( new google.maps.Marker(
+// 			{
+// 				position: latLng,
+// 				map: map,
+// 				title: data[i].name
+// 			}
+// 		));			
+// 	}
+// 	google.maps.event.addDomListener(window, 'load', initMap);
+// } 
+
+// initMarkers(pois);
 
 
 
