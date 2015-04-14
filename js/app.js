@@ -48,17 +48,6 @@ var pois = [
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 //--------------------VIEWMODEL--------------------//
 
 function AppViewModel() {
@@ -69,19 +58,19 @@ function AppViewModel() {
 	this.searchInput = ko.observable('Type keywords here');
 	this.currentPoi = ko.observable(home);
 
-	var street = this.currentPoi().street;
-	var city = this.currentPoi().city;
-
-	// DELETE THIS - FOR TESTING ONLY
-	street = '1600 pennsylvania ave';
-	city = 'washington dc';
-
-	var address = street.trim() + ', ' + city.trim();
-	console.log(address);
-	this.streetViewImgSrc = 'https://maps.googleapis.com/maps/api/streetview?size=200x200&location="'
-	    + address + '">';
+	
+	this.streetViewImgSrc = ko.computed(function() {
+		var street = self.currentPoi().street;
+		var city = self.currentPoi().city;
+		var address = street.trim() + ', ' + city.trim();
+		return 'https://maps.googleapis.com/maps/api/streetview?size=282x282&location="'+ address + '"';
+    }, this);
 
 
+	this.changeCurrentPoi = function(p) {
+		self.currentPoi(p);
+		console.log(self.currentPoi());
+	};
 
 	// find center
 	var latMin = pois[0].lat;
