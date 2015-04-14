@@ -41,27 +41,7 @@ var pois = [
 
 
 
-	// find center
-	var latMin = pois[0].lat;
-	var latMax = pois[0].lat;
-	var lngMin = pois[0].lng;
-	var lngMax = pois[0].lng;
-	for ( var i = 0; i < pois.length; i++ ) {
-		if (pois[i].lat < latMin) {latMin = pois[i].lat;}
-		if (pois[i].lat > latMax) {latMax = pois[i].lat;}
-		if (pois[i].lng < lngMin) {lngMin = pois[i].lng;}
-		if (pois[i].lng > lngMax) {lngMax = pois[i].lng;}
-	}
-	var latCenter = (latMin + latMax) / 2;
-	var lngCenter = (lngMin + lngMax) / 2;
 
-	// init map
-	var map = new google.maps.Map( document.getElementById( 'map-canvas' ),
-		{
-			center: { lat: latCenter, lng: lngCenter },
-		 	zoom: 13
-		}
-	);
 
 
 
@@ -95,6 +75,28 @@ function AppViewModel() {
 	this.searchInput = ko.observable('Type keywords here');
 
 	this.poiList.push(home);
+
+	// find center
+	var latMin = pois[0].lat;
+	var latMax = pois[0].lat;
+	var lngMin = pois[0].lng;
+	var lngMax = pois[0].lng;
+	for ( var i = 0; i < pois.length; i++ ) {
+		if (pois[i].lat < latMin) {latMin = pois[i].lat;}
+		if (pois[i].lat > latMax) {latMax = pois[i].lat;}
+		if (pois[i].lng < lngMin) {lngMin = pois[i].lng;}
+		if (pois[i].lng > lngMax) {lngMax = pois[i].lng;}
+	}
+	var latCenter = (latMin + latMax) / 2;
+	var lngCenter = (lngMin + lngMax) / 2;
+
+	// init map
+	var map = new google.maps.Map( document.getElementById( 'map-canvas' ),
+		{
+			center: { lat: latCenter, lng: lngCenter },
+		 	zoom: 13
+		}
+	);
 
 	this.searchPois = function() {
 
