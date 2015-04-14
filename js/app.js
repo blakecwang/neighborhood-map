@@ -41,15 +41,6 @@ var pois = [
 
 
 
-
-
-
-
-
-
-
-
-
 //--------------------VIEWMODEL--------------------//
 
 function AppViewModel() {
@@ -60,6 +51,7 @@ function AppViewModel() {
 	this.searchInput = ko.observable('Type keywords here');
 
 	this.poiList.push(home);
+	console.log(this.poiList()[0]);
 
 	// find center
 	var latMin = pois[0].lat;
@@ -84,7 +76,7 @@ function AppViewModel() {
 	);
 
 	// init markers
-	function initMarkers(data) {
+	this.initMarkers = function(data) {
 		var markers = [];
 		for ( var i = 0; i < data.length; i++ ) {
 
@@ -99,12 +91,12 @@ function AppViewModel() {
 		}
 		// google.maps.event.addDomListener(window, 'load', initMap);
 	}
-	initMarkers(pois);
+	this.initMarkers(this.poiList());
+
+	
 
 
 	this.searchPois = function() {
-
-		console.log(self.searchInput);
 
 		self.poiList.removeAll();
 		for ( var i = 0; i < pois.length; i++ ) {
@@ -117,7 +109,7 @@ function AppViewModel() {
 			}
 		}
 
-		initMarkers(self.poiList);
+		self.initMarkers(self.poiList());
 	};
 }
 
