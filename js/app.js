@@ -1,6 +1,3 @@
-/*
-	API key: AIzaSyBWMekTXMrGU0DNq4CiFH5ZcFW8L_Wsm1A
-*/
 
 //--------------------MODEL--------------------//
 
@@ -8,7 +5,9 @@ var home = {
 	'name': 'Blake\'s House',
 	'lat': 32.759904, 
 	'lng': -117.127454,
-	'keywords': 'home, casa'
+	'keywords': 'home, casa',
+	'street': '4542 Boundary St.',
+	'city': 'San Diego'
 };
 
 var pois = [
@@ -17,25 +16,33 @@ var pois = [
 		'name': 'Coin-Op Game Room',
 		'lat': 32.7490327, 
 		'lng': -117.1303769,
-		'keywords': 'bar, video'
+		'keywords': 'bar, video',
+		'street': '3926 30th St',
+		'city': 'San Diego'
 	},
 	{
 		'name': 'Soda Bar',
 		'lat': 32.7398671,
 		'lng': -117.1205925,
-		'keywords': 'bar, music'
+		'keywords': 'bar, music',
+		'street': '3615 El Cajon Blvd',
+		'city': 'San Diego'
 	},
 	{
 		'name': 'Seven Grand',
 		'lat': 32.7486272, 
 		'lng': -117.1286325,
-		'keywords': 'bar, whiskey'
+		'keywords': 'bar, whiskey',
+		'street': '3054 University Ave',
+		'city': 'San Diego'
 	},
 	{
 		'name': 'Rigoberto\'s Taco Shop',
 		'lat': 32.7216101, 
 		'lng': -117.0858673,
-		'keywords': 'food, mexican'
+		'keywords': 'food, mexican',
+		'street': '2704 University Ave',
+		'city': 'San Diego'
 	}
 ];
 
@@ -96,8 +103,6 @@ function AppViewModel() {
 		}
 	}
 	this.initMarkers(this.poiList());
-
-	
 
 
 	this.searchPois = function() {

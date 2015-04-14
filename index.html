@@ -1,13 +1,29 @@
 
-<!-- 
+<!-- TODO
 x Review our course JavaScript Design Patterns.
 x Download the Knockout framework.
 x Write code required to add a full-screen map to your page using the Google Maps API.
 x Write code required to add map markers identifying a number of locations your are interested in within this neighborhood.
-- Implement the search bar functionality to search and filter your map markers. There should be a filtering function on markers that already show up. Simply providing a search function through a third-party API is not enough.
-- Implement a list view of the identified locations.
+x Implement the search bar functionality to search and filter your map markers. There should be a filtering function on markers that already show up. Simply providing a search function through a third-party API is not enough.
+x Implement a list view of the identified locations.
 - Add additional functionality using third-party APIs when a map marker, search result, or list view entry is clicked (ex. Yelp reviews, Wikipedia, StreetView/Flickr images, etc). If you need a refresher on making AJAX requests to third-party servers, check out our Intro to AJAX course.
  -->
+
+
+<!-- GoogleMaps API Key  AIzaSyBWMekTXMrGU0DNq4CiFH5ZcFW8L_Wsm1A -->
+
+<!-- Yelp API Keys
+
+API v2.0
+Consumer Key        TukcOmjuXthBYqX3qXCsNQ
+Consumer Secret     dgCJ8TUP9LOQFtXK_-AAQx3bmD8
+Token               hLAha4nJ7y3eA3aUnWVdsOrr-69gKfw_
+Token Secret        14Gk9uBgSYWRKQfASRZGXE8DJMs
+
+API v1.0 (deprecated)
+YWSID
+Key                    9Xcps0qxd9DsvvkACoaDrQ -->
+
 
 
 <!DOCTYPE html>
@@ -40,6 +56,7 @@ x Write code required to add map markers identifying a number of locations your 
                 <li data-bind="text: name"></li>
                 <br>
             </ul>
+            <h3 id="yelp-header">Yelp Reviews</h3>
         </div>
     </div>
 
