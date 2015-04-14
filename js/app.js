@@ -68,12 +68,11 @@ function AppViewModel() {
 
 		self.poiList.removeAll();
 		for ( var i = 0; i < pois.length; i++ ) {
-			var truthiness = false;
 
-			if ( pois[i].name.indexOf(self.searchInput()) !== -1 ) { truthiness = true; }
-			if ( pois[i].keywords.indexOf(self.searchInput()) !== -1 ) { truthiness = true; }
+			var searchInputLC = self.searchInput().toLowerCase();
+			var searchStringsLC = pois[i].name.toLowerCase() + pois[i].keywords.toLowerCase();
 
-			if ( truthiness == true ) {
+			if ( searchStringsLC.indexOf(searchInputLC) !== -1 ) {
 				self.poiList.push( pois[i] );
 			}
 		}
