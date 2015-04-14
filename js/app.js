@@ -39,18 +39,12 @@ var pois = [
 	}
 ];
 
-// var poi = function(data) {
 
-// 	this.name = ko.observable(data.name);
-// 	this.lat = ko.observable(data.lat);
-// 	this.lng = ko.observable(data.lng);
-// 	this.keywords = ko.observable(data.keywords);
-
-// };
 
 function initMap(data) {
 
 	// find center
+	console.log(data[1]);
 	var latMin = data[0].lat;
 	var latMax = data[0].lat;
 	var lngMin = data[0].lng;
@@ -71,8 +65,10 @@ function initMap(data) {
 		 	zoom: 13
 		}
 	);
+}
+initMap(pois);
 
-	// init markers
+function initMarkers(data) {
 	var markers = [];
 	for ( var i = 0; i < data.length; i++ ) {
 
@@ -87,8 +83,7 @@ function initMap(data) {
 	}
 	google.maps.event.addDomListener(window, 'load', initMap);
 }
-initMap(pois);
-
+initMarkers(home);
 
 
 
@@ -101,7 +96,7 @@ function AppViewModel() {
 	this.poiList = ko.observableArray([]);
 	this.searchInput = ko.observable('Type keywords here');
 
-	self.poiList.push(home);
+	this.poiList.push(home);
 
 	this.searchPois = function() {
 
@@ -117,15 +112,9 @@ function AppViewModel() {
 				self.poiList.push( pois[i] );
 			}
 		}
+
+		initMarkers(self.poiList);
 	};
-	
-
-
-
-
-
-		
-	
 }
 
 ko.applyBindings(new AppViewModel());
