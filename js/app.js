@@ -6,7 +6,7 @@ var home = {
 	'lat': 32.759904, 
 	'lng': -117.127454,
 	'keywords': 'home, casa',
-	'street': '4542 Boundary St.',
+	'street': '4542 Boundary St',
 	'city': 'San Diego'
 };
 
@@ -48,16 +48,40 @@ var pois = [
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 //--------------------VIEWMODEL--------------------//
 
 function AppViewModel() {
 
 	var self = this;
 
-	this.poiList = ko.observableArray([]);
+	this.poiList = ko.observableArray([home]);
 	this.searchInput = ko.observable('Type keywords here');
+	this.currentPoi = ko.observable(home);
 
-	this.poiList.push(home);
+	var street = this.currentPoi().street;
+	var city = this.currentPoi().city;
+
+	// DELETE THIS - FOR TESTING ONLY
+	street = '1600 pennsylvania ave';
+	city = 'washington dc';
+
+	var address = street.trim() + ', ' + city.trim();
+	console.log(address);
+	this.streetViewImgSrc = 'https://maps.googleapis.com/maps/api/streetview?size=200x200&location="'
+	    + address + '">';
+
+
 
 	// find center
 	var latMin = pois[0].lat;
