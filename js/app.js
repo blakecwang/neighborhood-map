@@ -44,7 +44,7 @@ var pois = [
 function initMap(data) {
 
 	// find center
-	console.log(data[1]);
+	console.log(data[0].name);
 	var latMin = data[0].lat;
 	var latMax = data[0].lat;
 	var lngMin = data[0].lng;
