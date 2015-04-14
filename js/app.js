@@ -45,23 +45,8 @@ var pois = [
 
 
 
-// function initMarkers(data) {
-// 	var markers = [];
-// 	for ( var i = 0; i < data.length; i++ ) {
 
-// 		var latLng = new google.maps.LatLng( data[i].lat, data[i].lng );
-// 		markers.push( new google.maps.Marker(
-// 			{
-// 				position: latLng,
-// 				map: map,
-// 				title: data[i].name
-// 			}
-// 		));			
-// 	}
-// 	google.maps.event.addDomListener(window, 'load', initMap);
-// } 
 
-// initMarkers(pois);
 
 
 
@@ -91,12 +76,31 @@ function AppViewModel() {
 	var lngCenter = (lngMin + lngMax) / 2;
 
 	// init map
-	var map = new google.maps.Map( document.getElementById( 'map-canvas' ),
+	this.map = new google.maps.Map( document.getElementById( 'map-canvas' ),
 		{
 			center: { lat: latCenter, lng: lngCenter },
 		 	zoom: 13
 		}
 	);
+
+	// init markers
+	function initMarkers(data) {
+		var markers = [];
+		for ( var i = 0; i < data.length; i++ ) {
+
+			var latLng = new google.maps.LatLng( data[i].lat, data[i].lng );
+			markers.push( new google.maps.Marker(
+				{
+					position: latLng,
+					map: self.map,
+					title: data[i].name
+				}
+			));			
+		}
+		// google.maps.event.addDomListener(window, 'load', initMap);
+	}
+	initMarkers(pois);
+
 
 	this.searchPois = function() {
 
