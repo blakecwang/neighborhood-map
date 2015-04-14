@@ -59,9 +59,16 @@ function AppViewModel() {
 
 	this.poiList = ko.observableArray([]);
 
-	var search = function(input) {
+	self.poiList.push(home);
+
+	this.searchPois = function() {
+		console.log('something');
+
+		self.poiList = [];
 		for ( var i = 0; i < pois.length; i++ ) {
 			var truthiness = false;
+
+			var input = 'bar';
 
 			if ( pois[i].name.indexOf(input) !== -1 ) { truthiness = true; }
 			if ( pois[i].keywords.indexOf(input) !== -1 ) { truthiness = true; }
@@ -70,6 +77,7 @@ function AppViewModel() {
 				self.poiList.push( pois[i] );
 			}
 		}
+		console.log(self.poiList[1].name);
 	};
 	
 
