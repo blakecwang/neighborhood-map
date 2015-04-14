@@ -39,14 +39,55 @@ var pois = [
 	}
 ];
 
-var poi = function(data) {
+// var poi = function(data) {
 
-	this.name = ko.observable(data.name);
-	this.lat = ko.observable(data.lat);
-	this.lng = ko.observable(data.lng);
-	this.keywords = ko.observable(data.keywords);
+// 	this.name = ko.observable(data.name);
+// 	this.lat = ko.observable(data.lat);
+// 	this.lng = ko.observable(data.lng);
+// 	this.keywords = ko.observable(data.keywords);
 
-};
+// };
+
+function initMap(data) {
+
+	// find center
+	var latMin = data[0].lat;
+	var latMax = data[0].lat;
+	var lngMin = data[0].lng;
+	var lngMax = data[0].lng;
+	for ( var i = 0; i < data.length; i++ ) {
+		if (data[i].lat < latMin) {latMin = data[i].lat;}
+		if (data[i].lat > latMax) {latMax = data[i].lat;}
+		if (data[i].lng < lngMin) {lngMin = data[i].lng;}
+		if (data[i].lng > lngMax) {lngMax = data[i].lng;}
+	}
+	var latCenter = (latMin + latMax) / 2;
+	var lngCenter = (lngMin + lngMax) / 2;
+
+	// init map
+	var map = new google.maps.Map( document.getElementById( 'map-canvas' ),
+		{
+			center: { lat: latCenter, lng: lngCenter },
+		 	zoom: 13
+		}
+	);
+
+	// init markers
+	var markers = [];
+	for ( var i = 0; i < data.length; i++ ) {
+
+		var latLng = new google.maps.LatLng( data[i].lat, data[i].lng );
+		markers.push( new google.maps.Marker(
+			{
+				position: latLng,
+				map: map,
+				title: data[i].name
+			}
+		));			
+	}
+	google.maps.event.addDomListener(window, 'load', initMap);
+}
+initMap(pois);
 
 
 
@@ -81,46 +122,10 @@ function AppViewModel() {
 
 
 
-	// function initMap(data) {
 
-	// 	// find center
-	// 	var latMin = data[0].lat;
-	// 	var latMax = data[0].lat;
-	// 	var lngMin = data[0].lng;
-	// 	var lngMax = data[0].lng;
-	// 	for ( var i = 0; i < data.length; i++ ) {
-	// 		if (data[i].lat < latMin) {latMin = data[i].lat;}
-	// 		if (data[i].lat > latMax) {latMax = data[i].lat;}
-	// 		if (data[i].lng < lngMin) {lngMin = data[i].lng;}
-	// 		if (data[i].lng > lngMax) {lngMax = data[i].lng;}
-	// 	}
-	// 	var latCenter = (latMin + latMax) / 2;
-	// 	var lngCenter = (lngMin + lngMax) / 2;
 
-	// 	// init map
-	// 	var map = new google.maps.Map( document.getElementById( 'map-canvas' ),
-	// 		{
-	// 			center: { lat: latCenter, lng: lngCenter },
-	// 		 	zoom: 13
-	// 		}
-	// 	);
-
-	// 	// init markers
-	// 	var markers = [];
-	// 	for ( var i = 0; i < data.length; i++ ) {
-
-	// 		var latLng = new google.maps.LatLng( data[i].lat, data[i].lng );
-	// 		markers.push( new google.maps.Marker(
-	// 			{
-	// 				position: latLng,
-	// 				map: map,
-	// 				title: data[i].name
-	// 			}
-	// 		));			
-	// 	}
-	// 	google.maps.event.addDomListener(window, 'load', initMap);
-	// }
-	// initMap(this.placesList);
+		
+	
 }
 
 ko.applyBindings(new AppViewModel());
